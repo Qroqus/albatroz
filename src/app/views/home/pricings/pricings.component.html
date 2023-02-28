@@ -1,0 +1,33 @@
+<section id="pricings-section"
+         class="home-section"
+         [ngClass]="{'light-gray': backgroundGray}">
+
+  <div  class="container"
+        fxLayout="row wrap" 
+        fxLayout.lt-sm="column" 
+        fxLayoutGap="32px" 
+        fxLayoutAlign="flex-start">
+
+    <ng-container *ngFor="let pd of priceData; index as i">
+      <div fxFlex="0 1 calc(33.3% - 32px)"
+           fxFlex.lt-md="0 1 calc(50% - 32px)"
+           fxFlex.lt-sm="100%">
+        <mat-card class="plan-pricing text-center p-0">
+          <mat-card-title class="mat-bg-primary">
+            <div class="card-title-text">
+              <div class="">{{pd.name}}</div>
+            </div>
+            <mat-divider></mat-divider>
+          </mat-card-title>
+          <mat-card-content>
+            <mat-list dense class="mb-1" *ngFor="let text of pd.text; last as isLast">
+              <mat-list-item><strong>{{text}}</strong></mat-list-item>
+              <mat-divider *ngIf="isLast == false"></mat-divider>
+            </mat-list>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </ng-container>
+
+  </div>
+</section>

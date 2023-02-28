@@ -1,0 +1,27 @@
+<section id="portfolio-section"
+         class="portfolio home-section"
+         [ngClass]="{'light-gray': backgroundGray}">
+  <div  class="container"
+        fxLayout="row wrap" 
+        fxLayout.lt-sm="column" 
+        fxLayoutGap="32px" 
+        fxLayoutAlign="flex-start">
+    <!--
+      blog.angularindepth.com/angular-flex-layout-flexbox-and-grid-layout-for-angular-component-6e7c24457b63
+    -->
+    <ng-container *ngFor="let cd of cardData">
+      <div fxFlex="0 1 calc(33.3% - 32px)"
+           fxFlex.lt-md="0 1 calc(50% - 32px)"
+           fxFlex.lt-sm="100%"
+           class="port-card">
+        <mat-card class="p-0 m-0">
+          <img mat-card-image [src]=cd.image>
+          <mat-card-content>
+            <h5><strong><a [routerLink]="[cd.link]">{{cd.name}}</a></strong></h5>
+            <p>{{cd.text}}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </ng-container>
+  </div>
+</section>
